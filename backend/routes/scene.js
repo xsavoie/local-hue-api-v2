@@ -16,12 +16,11 @@ scene.get('/', async function(req, res) {
         },
       }
     );
-    console.log(apiResponse.data.data)
+    // console.log(apiResponse.data.data)
     res.json(apiResponse.data.data)
   } catch (error) {
     console.log(error);
   }
-  // res.send('test -- scene');
 });
 
 module.exports = scene;

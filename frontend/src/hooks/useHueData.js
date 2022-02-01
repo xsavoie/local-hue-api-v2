@@ -1,0 +1,21 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function useHueData() {
+  const [lights, setLights] = useState([]);
+
+  async function fetchLightsApi() {
+    try {
+      const apiResponse = await axios.get("/api/light");
+      setLights(apiResponse.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchLightsApi();
+  },[])
+
+  return { lights, setLights }
+}
