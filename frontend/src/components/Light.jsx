@@ -1,13 +1,12 @@
 import LightContainer from "./LightContainer";
 
 export default function Lights({ lights, setLights }) {
-  console.log(lights[0])
   const lightContainers = lights.map((light) => (
     <LightContainer
       key={light.id}
       id={light.id}
       name={light.metadata.name}
-      state={light.state}
+      lightInfo={light}
       lights={lights}
       setLights={setLights}
       // scenes={scenes}

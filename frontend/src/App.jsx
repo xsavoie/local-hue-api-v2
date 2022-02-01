@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div className="App">
-      <p>hi</p>
       <Lights lights={lights} setLights={setLights} />
     </div>
   );
