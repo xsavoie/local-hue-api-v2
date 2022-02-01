@@ -1,0 +1,17 @@
+.light-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 20%;
+  border: 3px solid grey;
+  border-radius: 14px;
+
+  margin: 2% 2%;
+}
+
+.light-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: -10% 10% 0;
+}

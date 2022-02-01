@@ -11,6 +11,8 @@ const indexRouter = require('./routes/index');
 const lightRouter = require('./routes/light');
 const grouped_lightRouter = require('./routes/grouped_light');
 const sceneRouter = require('./routes/scene');
+const roomRouter = require('./routes/room');
+
 
 
 const app = express();
@@ -26,6 +28,8 @@ app.use('/', indexRouter);
 app.use('/api/light', lightRouter);
 app.use('/api/grouped_light', grouped_lightRouter);
 app.use('/api/scene', sceneRouter);
+app.use('/api/room', roomRouter);
+
 
 
 module.exports = app;
