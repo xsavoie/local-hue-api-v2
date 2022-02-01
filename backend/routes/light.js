@@ -29,10 +29,7 @@ light.get("/", async function (req, res) {
 });
 
 light.put("/:id", async function (req, res) {
-  // console.log(req);
-  // const id = req.query.id;
   const id = req.params.id;
-
   const body = req.body;
 
   try {
@@ -44,7 +41,7 @@ light.put("/:id", async function (req, res) {
     // console.log(apiResponse.data)
     res.json(apiResponse.data)
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 });
 
