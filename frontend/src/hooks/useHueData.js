@@ -9,7 +9,7 @@ export default function useHueData() {
   async function fetchLightsApi() {
     try {
       const apiResponse = await axios.get("/api/light");
-      setLights(apiResponse.data);
+      setLights(apiResponse.data.reverse());
     } catch (error) {
       console.log(error);
     }
@@ -29,5 +29,5 @@ export default function useHueData() {
     fetchGroupedLightApi();
   },[])
 
-  return { lights, setLights, groupedLight: groupedLights, setGroupedLight: setGroupedLights }
+  return { lights, setLights, groupedLights, setGroupedLights }
 }
