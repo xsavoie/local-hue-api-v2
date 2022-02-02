@@ -6,12 +6,12 @@ import { useState } from "react";
 import useHueLight from "../hooks/useHueLight";
 // import useHueLight from "../hooks/useHueLight";
 
-export default function LightContainer({ id, name, lightInfo }) {
+export default function LightContainer({ id, name, lightInfo, lights, setLights }) {
   // const { id, name, state } = props;
   // const [bri, setBri] = useState(state.bri);
   // const [color, setColor] = useState(state.xy);
 
-  const { handleLightChange } = useHueLight({id});
+  const { handleLightChange } = useHueLight({id, lights, setLights});
 
   return (
     <div className="light-container">

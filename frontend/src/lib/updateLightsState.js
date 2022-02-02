@@ -1,6 +1,5 @@
 const updateLightsState = (request, state, id) => {
   const param = Object.keys(request)[0];
-  console.log("*******", request[param]);
   let stateCopy = [...state];
   let lightToUpdate = stateCopy.find((data) => data.id === id);
   // add support for request with multiple params

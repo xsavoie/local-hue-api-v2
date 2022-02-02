@@ -6,8 +6,6 @@ function App() {
 
   const { lights, setLights, groupedLights, setGroupLights } = useHueData();
 
-  console.log(lights[0])
-  console.log(lights[1])
   // console.log("light", lights)
   // console.log("groupedLight", groupedLight)
 
