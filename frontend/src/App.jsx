@@ -16,14 +16,14 @@ function App() {
 
   // console.log("light", lights)
   // console.log("groupedLight", groupedLight)
-  console.log('rooms', rooms)
+  // console.log('rooms', rooms)
 
   if (loading) return <p>Getting Hue Data...</p>;
 
   return (
     <div className="App">
       <Lights lights={lights} setLights={setLights} />
-      <GroupGrid rooms={rooms} />
+      <GroupGrid rooms={rooms} lights={lights} setLights={setLights} />
     </div>
   );
 }

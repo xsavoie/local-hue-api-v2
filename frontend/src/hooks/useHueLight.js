@@ -15,6 +15,7 @@ export default function useHueLight({ id, lights, setLights }) {
   };
 
   const handleLightChange = async (body) => {
+    console.log("ID", id)
     try {
       const request = await hueApiRequest(body);
       setLights(updateLightsState(body, lights, id));
