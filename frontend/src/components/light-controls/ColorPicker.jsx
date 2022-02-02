@@ -5,18 +5,21 @@ import useHueLight from "../../hooks/useHueLight";
 import { xyColorCoverter, rgbColorConverter } from "../../lib/colorConverters";
 import "../../styles/ColorPicker.css";
 
-export default function ColorPicker(props) {
-  const { color, setColor, bri, handleChangeColor } = props;
+export default function ColorPicker({ color, setColor, bri, handleChangeColor }) {
+  // const { color, setColor, bri, handleChangeColor } = props;
   // const { handleChangeColor } = useHueLight(props);
 
-  const [lastColor, setLastColor] = useState(rgbColorConverter(color, bri));
+  let parsedBri = parseInt(bri * 254 / 100);
+
+  const [lastColor, setLastColor] = useState(rgbColorConverter(color, parsedBri));
 
   const handleChange = (newColor) => {
     const xyColor = xyColorCoverter(newColor);
+    console.log("xyColor", xyColor)
     console.log("newcolor", newColor);
     setLastColor(newColor);
     setColor(xyColor.xy);
-    handleChangeColor({ color: { xy: xyColor } });
+    handleChangeColor({ color: xyColor });
   };
 
   // popover colorpicker
