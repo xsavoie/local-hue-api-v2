@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function useHueData() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [lights, setLights] = useState([]);
   const [groupedLights, setGroupedLights] = useState([]);
   const [rooms, setRooms] = useState([]);
-
 
   async function fetchLightsApi() {
     try {
@@ -37,15 +36,23 @@ export default function useHueData() {
 
   useEffect(() => {
     async function fetchAllApi() {
-      setLoading(true)
+      setLoading(true);
       await fetchLightsApi();
       await fetchGroupedLightApi();
       await fetchRoomApi();
-      setLoading(false)
+      setLoading(false);
     }
 
     fetchAllApi();
-  },[])
+  }, []);
 
-  return { lights, setLights, groupedLights, setGroupedLights, loading }
+  return {
+    lights,
+    setLights,
+    groupedLights,
+    setGroupedLights,
+    rooms,
+    setRooms,
+    loading,
+  };
 }

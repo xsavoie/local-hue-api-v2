@@ -10,7 +10,6 @@ export default function LightContainer({ id, name, lightInfo, lights, setLights 
   const [bri, setBri] = useState(lightInfo.dimming.brightness);
   const [color, setColor] = useState(lightInfo.color.xy);
   const { handleLightChange } = useHueLight({id, lights, setLights});
-  console.log("COLOOOOOR", color)
 
   return (
     <div className="light-container">

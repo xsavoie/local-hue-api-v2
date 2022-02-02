@@ -1,0 +1,24 @@
+.grid-item--container {
+  flex: 1 0 21%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  /* width: 20%; */
+  /* height: 25%; */
+  border: 3px solid grey;
+  border-radius: 14px;
+
+  margin: 2% 2%;
+}
+
+.grid-item--info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 10% 0;
+}
+
+.grid-item--control {
+  /* margin: 4% 4% 2%; */
+  padding: 4%;
+}
