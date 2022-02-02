@@ -11,16 +11,10 @@ import ToggleLight from "./light-controls/ToggleLight";
 // import ScenesContainer from "./light-controls/ScenesContainer";
 
 export default function GroupContainer({ id, name, groupedId, groupLights }) {
-  // console.log("id", id)
-  // console.log("name", name)
-  // console.log("groupedId", groupedId)
-  // console.log("children", children)
-
   const { lights, setLights } = useHueData();
-  // const lightsArray = groupLights.map((light) => light.rid);
-  const { handleLightChange } = useHueLight({ id, lights, setLights });
+  const { handleRequest } = useHueLight({ id: groupLights, lights, setLights });
 
-  // need an array of lightsData that are in this group
+  // returns array of light objects for multiple light id's
   function parseGroupLights(lightIdArray, lights) {
     let arrayOfLights = [];
     lightIdArray.forEach((id) => {
@@ -35,11 +29,8 @@ export default function GroupContainer({ id, name, groupedId, groupLights }) {
 
   const parsedLights = parseGroupLights(groupLights, lights);
 
-  // const { name, id, state, scenes, selected, setSelected } = props;
   // const [bri, setBri] = useState(state.bri);
   // const [color, setColor] = useState(state.xy);
-
-  // const { handleGroupChange } = useHueGroup(props);
 
   // const parsedScenes = scenes.filter((scene) => scene.group === id);
 
@@ -47,15 +38,15 @@ export default function GroupContainer({ id, name, groupedId, groupLights }) {
     <div className="grid-item--container">
       <header className="grid-item--info">
         <h4>
-          {name} {id}
+          {name} id: {id}
         </h4>
         {/* <ExpandedView selected={selected} setSelected={setSelected} id={id}/> */}
       </header>
       <div className="grid-item--control">
         <ToggleLight
-          id={id}
+          id={groupLights}
           lightInfo={parsedLights[0]}
-          handleToggle={handleLightChange}
+          handleRequest={handleRequest}
         />
         {/* <BrightnessSlider
             id={id}

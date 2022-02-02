@@ -1,11 +1,10 @@
 import Slider from "@mui/material/Slider";
 
-export default function BrightnessSlider(props) {
-  const { bri, setBri, handleBrightness } = props;
-
+export default function BrightnessSlider({ id, bri, setBri, handleRequest }) {
   const handleChange = (event, newValue) => {
     setBri(newValue);
-    handleBrightness({ dimming: { brightness: newValue } });
+    const body = { dimming: { brightness: newValue } };
+    handleRequest(id, body);
   };
 
   return (

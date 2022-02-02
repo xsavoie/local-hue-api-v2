@@ -1,25 +1,20 @@
 import { useState, useCallback, useRef } from "react";
 import { RgbColorPicker } from "react-colorful";
 import useClickOutside from "../../hooks/useClickOutside";
-import useHueLight from "../../hooks/useHueLight";
 import { xyColorCoverter, rgbColorConverter } from "../../lib/colorConverters";
 import "../../styles/ColorPicker.css";
 
-export default function ColorPicker({ color, setColor, bri, handleChangeColor }) {
-  // const { color, setColor, bri, handleChangeColor } = props;
-  // const { handleChangeColor } = useHueLight(props);
-
-  let parsedBri = parseInt(bri * 254 / 100);
-
+export default function ColorPicker({ id, color, setColor, bri, handleRequest }) {
+  // convert brightness on a scale of 254 to be converted
+  let parsedBri = parseInt((bri * 254) / 100);
   const [lastColor, setLastColor] = useState(rgbColorConverter(color, parsedBri));
 
   const handleChange = (newColor) => {
     const xyColor = xyColorCoverter(newColor);
-    console.log("xyColor", xyColor)
-    console.log("newcolor", newColor);
     setLastColor(newColor);
     setColor(xyColor.xy);
-    handleChangeColor({ color: xyColor });
+    const body = { color: xyColor };
+    handleRequest(id, body);
   };
 
   // popover colorpicker

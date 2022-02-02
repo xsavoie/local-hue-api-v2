@@ -9,7 +9,7 @@ export default function LightContainer({ id, name, lightInfo, lights, setLights 
   // const { id, name, state } = props;
   const [bri, setBri] = useState(lightInfo.dimming.brightness);
   const [color, setColor] = useState(lightInfo.color.xy);
-  const { handleLightChange } = useHueLight({id, lights, setLights});
+  const { handleRequest } = useHueLight({lights, setLights});
 
   return (
     <div className="light-container">
@@ -18,19 +18,19 @@ export default function LightContainer({ id, name, lightInfo, lights, setLights 
         <h4>id: {id}</h4>
       </div>
       <div>
-        <ToggleLight id={id} lightInfo={lightInfo} handleToggle={handleLightChange} />
+        <ToggleLight id={id} lightInfo={lightInfo} handleRequest={handleRequest} />
         <BrightnessSlider
           id={id}
           bri={bri}
           setBri={setBri}
-          handleBrightness={handleLightChange}
+          handleRequest={handleRequest}
         />
         <ColorPicker
           id={id}
           bri={bri}
           color={color}
           setColor={setColor}
-          handleChangeColor={handleLightChange}
+          handleRequest={handleRequest}
         /> 
       </div>
     </div>
