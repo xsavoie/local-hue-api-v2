@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function useHueData() {
+  const [loading, setLoading] = useState(false)
   const [lights, setLights] = useState([]);
   const [groupedLights, setGroupedLights] = useState([]);
+  const [rooms, setRooms] = useState([]);
 
 
   async function fetchLightsApi() {
@@ -24,10 +26,26 @@ export default function useHueData() {
     }
   }
 
+  async function fetchRoomApi() {
+    try {
+      const apiResponse = await axios.get("/api/room");
+      setRooms(apiResponse.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    fetchLightsApi();
-    fetchGroupedLightApi();
+    async function fetchAllApi() {
+      setLoading(true)
+      await fetchLightsApi();
+      await fetchGroupedLightApi();
+      await fetchRoomApi();
+      setLoading(false)
+    }
+
+    fetchAllApi();
   },[])
 
-  return { lights, setLights, groupedLights, setGroupedLights }
+  return { lights, setLights, groupedLights, setGroupedLights, loading }
 }
