@@ -1,8 +1,9 @@
 .grid-item--container {
-  flex: 1 0 21%;
+  flex: 0 0 21%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  max-width: 50%;
   /* width: 20%; */
   /* height: 25%; */
   border: 3px solid grey;

@@ -13,7 +13,6 @@ export default function GroupContainer({ id, name, groupedId, lightsId, lightsIn
   const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
-  console.log("!!!", lightsId)
   // const parsedScenes = scenes.filter((scene) => scene.group === id);
 
   return (

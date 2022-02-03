@@ -1,5 +1,6 @@
 import "./App.css";
 import GroupGrid from "./components/GroupGrid";
+import Groups from "./components/Groups";
 import Lights from "./components/Light";
 import useHueData from "./hooks/useHueData";
 
@@ -22,8 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      <Lights lights={lights} setLights={setLights} />
-      <GroupGrid rooms={rooms} lights={lights} setLights={setLights} />
+      {/* <Lights lights={lights} setLights={setLights} /> */}
+      <Groups rooms={rooms} lights={lights} setLights={setLights} />
+      {/* <GroupGrid rooms={rooms} lights={lights} setLights={setLights} /> */}
     </div>
   );
 }
