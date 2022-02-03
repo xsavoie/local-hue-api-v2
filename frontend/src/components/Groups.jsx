@@ -6,7 +6,7 @@ import SetView from "./SetView";
 import GroupGrid from "./GroupGrid";
 import "../styles/Groups.css";
 
-export default function Groups({ lights, setLights, rooms }) {
+export default function Groups({ lights, setLights, rooms, scenes }) {
   const { groupView, selected } = useGroupState();
 
   return (
@@ -14,7 +14,7 @@ export default function Groups({ lights, setLights, rooms }) {
       <div className="groups--container">
         <SetView />
         {groupView === "GRID" && (
-          <GroupGrid rooms={rooms} lights={lights} setLights={setLights} />
+          <GroupGrid rooms={rooms} lights={lights} setLights={setLights} scenes={scenes}/>
         )}
         {groupView === "LIST" && (
           <GroupList rooms={rooms} lights={lights} setLights={setLights} />

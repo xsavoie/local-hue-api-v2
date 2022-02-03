@@ -28,7 +28,7 @@ function App() {
     <GroupStateProvider>
       <div className="App">
         {/* <Lights lights={lights} setLights={setLights} /> */}
-        <Groups rooms={rooms} lights={lights} setLights={setLights} />
+        <Groups rooms={rooms} lights={lights} setLights={setLights} scenes={scenes} />
       </div>
     </GroupStateProvider>
   );

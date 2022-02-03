@@ -16,11 +16,11 @@ export default function GroupContainer({
   lightsInGroup,
   lights,
   setLights,
+  groupScenes
 }) {
   const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
-  // const parsedScenes = scenes.filter((scene) => scene.group === id);
 
   return (
     <div className="grid-item--container">
@@ -51,7 +51,7 @@ export default function GroupContainer({
         />
         {/* <ScenesDropdown
             scenes={parsedScenes}
-            handleSceneChange={handleGroupChange}
+            handleRequest={handleGroupChange}
           /> */}
         {/* <ScenesContainer scenes={parsedScenes} handleSceneChange={handleGroupChange} /> */}
       </div>

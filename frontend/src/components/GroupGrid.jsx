@@ -3,9 +3,10 @@ import {
   lightsIdForRoom,
   getAllLightsForGroup,
 } from "../lib/lightGroupHelpers";
+import { parseScenes } from "../lib/scenesHelper";
 import GroupContainer from "./GroupGridItem";
 
-export default function GroupGrid({ lights, setLights, rooms }) {
+export default function GroupGrid({ lights, setLights, rooms, scenes }) {
   // const { selected, setSelected } = useGroupState();
 
   const groupGridItems = rooms.map((room) => (
@@ -18,6 +19,7 @@ export default function GroupGrid({ lights, setLights, rooms }) {
       lightsInGroup={getAllLightsForGroup(lightsIdForRoom(room), lights)}
       lights={lights}
       setLights={setLights}
+      groupScenes={parseScenes(room, scenes)}
     />
   ));
 
