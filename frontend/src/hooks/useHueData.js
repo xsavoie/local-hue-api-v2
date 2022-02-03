@@ -6,6 +6,7 @@ export default function useHueData() {
   const [lights, setLights] = useState([]);
   const [groupedLights, setGroupedLights] = useState([]);
   const [rooms, setRooms] = useState([]);
+  const [scenes, setScenes] = useState([]);
 
   async function fetchLightsApi() {
     try {
@@ -34,12 +35,22 @@ export default function useHueData() {
     }
   }
 
+  async function fetchSceneApi() {
+    try {
+      const apiResponse = await axios.get("/api/scene");
+      setScenes(apiResponse.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     async function fetchAllApi() {
       setLoading(true);
       await fetchLightsApi();
       await fetchGroupedLightApi();
       await fetchRoomApi();
+      fetchSceneApi();
       setLoading(false);
     }
 
@@ -54,5 +65,7 @@ export default function useHueData() {
     rooms,
     setRooms,
     loading,
+    scenes,
+    setScenes
   };
 }
