@@ -1,12 +1,10 @@
-import useHueData from "../hooks/useHueData";
 import useHueLight from "../hooks/useHueLight";
 import "../styles/GroupGridItem.css";
 import { useState } from "react";
 import BrightnessSlider from "./light-controls/BrightnessSlider";
 // import useHueGroup from "../hooks/useHueGroup";
 import ToggleLight from "./light-controls/ToggleLight";
-import { useEffect } from "react";
-// import ColorPicker from "./light-controls/ColorPicker";
+import ColorPicker from "./light-controls/ColorPicker";
 // import ScenesDropdown from "./light-controls/ScenesDropdown";
 // import ExpandedView from "./ExpandView";
 // import ScenesContainer from "./light-controls/ScenesContainer";
@@ -16,8 +14,6 @@ export default function GroupContainer({ id, name, groupedId, lightsId, lightsIn
 
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
-  console.log("!!!", color)
-
 
   // const parsedScenes = scenes.filter((scene) => scene.group === id);
 
@@ -41,13 +37,13 @@ export default function GroupContainer({ id, name, groupedId, lightsId, lightsIn
             setBri={setBri}
             handleRequest={handleRequest}
           />
-        {/* <ColorPicker
+        <ColorPicker
             id={lightsId}
             color={color}
             bri={bri}
             setColor={setColor}
             handleRequest={handleRequest}
-          /> */}
+          />
         {/* <ScenesDropdown
             scenes={parsedScenes}
             handleSceneChange={handleGroupChange}
