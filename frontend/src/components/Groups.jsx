@@ -14,7 +14,6 @@ export default function Groups({ lights, setLights, rooms }) {
       <div className="groups--container">
         <GroupGrid rooms={rooms} lights={lights} setLights={setLights} />
 
-
         {/* <SetView /> */}
         {/* {selected && (
           <GroupExpanded

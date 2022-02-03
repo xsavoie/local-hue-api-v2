@@ -9,7 +9,15 @@ import ColorPicker from "./light-controls/ColorPicker";
 // import ExpandedView from "./ExpandView";
 // import ScenesContainer from "./light-controls/ScenesContainer";
 
-export default function GroupContainer({ id, name, groupedId, lightsId, lightsInGroup, lights, setLights }) {
+export default function GroupContainer({
+  id,
+  name,
+  groupedId,
+  lightsId,
+  lightsInGroup,
+  lights,
+  setLights,
+}) {
   const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
@@ -30,18 +38,18 @@ export default function GroupContainer({ id, name, groupedId, lightsId, lightsIn
           handleRequest={handleRequest}
         />
         <BrightnessSlider
-            id={lightsId}
-            bri={bri}
-            setBri={setBri}
-            handleRequest={handleRequest}
-          />
+          id={lightsId}
+          bri={bri}
+          setBri={setBri}
+          handleRequest={handleRequest}
+        />
         <ColorPicker
-            id={lightsId}
-            color={color}
-            bri={bri}
-            setColor={setColor}
-            handleRequest={handleRequest}
-          />
+          id={lightsId}
+          color={color}
+          bri={bri}
+          setColor={setColor}
+          handleRequest={handleRequest}
+        />
         {/* <ScenesDropdown
             scenes={parsedScenes}
             handleSceneChange={handleGroupChange}

@@ -22,22 +22,38 @@ describe("lightsIdForRoom function", () => {
   });
   it("doesnt return the grouped_id", () => {
     const data = lightsIdForRoom(smallRoom);
-    expect(data).toEqual(expect.not.arrayContaining(smallRoomGroup))
+    expect(data).toEqual(expect.not.arrayContaining(smallRoomGroup));
   });
   it("returns multiple light id's", () => {
     const data = lightsIdForRoom(bigRoom);
-    expect(data.length).toEqual(bigRoomLight.length)
-    expect(data).toEqual(bigRoomLight)
+    expect(data.length).toEqual(bigRoomLight.length);
+    expect(data).toEqual(bigRoomLight);
   });
   it("returns an array of strings", () => {
     const data = lightsIdForRoom(smallRoom);
     expect(Array.isArray(data)).toBeTruthy();
-    expect((typeof data[0] === "string")).toBeTruthy();
+    expect(typeof data[0] === "string").toBeTruthy();
   });
 });
 
 describe("getAllLightsForGroup function", () => {
-  it("finds the correct light", () => {});
-  it("finds multiple lights", () => {});
-  it("returns an array of lights object", () => {});
+  it("finds the correct light", () => {
+    const data = getAllLightsForGroup(smallRoomLight, lights);
+    expect(data[0].id).toEqual(smallRoomLight[0]);
+  });
+  it("only finds one light when given 1 id", () => {
+    const data = getAllLightsForGroup(smallRoomLight, lights);
+    expect(data.length).toEqual(1);
+  });
+  it("finds multiple lights", () => {
+    const data = getAllLightsForGroup(bigRoomLight, lights);
+    expect(data[0].id).toEqual(bigRoomLight[0]);
+    expect(data[1].id).toEqual(bigRoomLight[1]);
+    expect(data.length).toEqual(2);
+  });
+  it("returns an array of lights object", () => {
+    const data = getAllLightsForGroup(smallRoomLight, lights);
+    expect(Array.isArray(data)).toBeTruthy();
+    expect(typeof data[0] === "object").toBeTruthy();
+  });
 });
