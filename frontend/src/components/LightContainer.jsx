@@ -6,7 +6,6 @@ import { useState } from "react";
 import useHueLight from "../hooks/useHueLight";
 
 export default function LightContainer({ id, name, lightInfo, lights, setLights }) {
-  // const { id, name, state } = props;
   const [bri, setBri] = useState(lightInfo.dimming.brightness);
   const [color, setColor] = useState(lightInfo.color.xy);
   const { handleRequest } = useHueLight({lights, setLights});

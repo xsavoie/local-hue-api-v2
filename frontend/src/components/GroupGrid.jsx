@@ -33,6 +33,8 @@ export default function GroupGrid({ lights, setLights, rooms }) {
       groupedId={room.grouped_services[0].rid}
       lightsId={lightsIdForRoom(room)}
       lightsInGroup={parseGroupLights(lightsIdForRoom(room), lights)}
+      lights={lights}
+      setLights={setLights}
     />
   ));
 
