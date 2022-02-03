@@ -2,7 +2,6 @@ import useHueLight from "../hooks/useHueLight";
 import "../styles/GroupGridItem.css";
 import { useState } from "react";
 import BrightnessSlider from "./light-controls/BrightnessSlider";
-// import useHueGroup from "../hooks/useHueGroup";
 import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
 // import ScenesDropdown from "./light-controls/ScenesDropdown";

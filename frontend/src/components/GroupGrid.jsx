@@ -1,5 +1,8 @@
 // import { useGroupState } from "../lib/groupState";
-import { lightsIdForRoom, getAllLightsForGroup } from "../lib/lightGroupHelpers";
+import {
+  lightsIdForRoom,
+  getAllLightsForGroup,
+} from "../lib/lightGroupHelpers";
 import GroupContainer from "./GroupGridItem";
 
 export default function GroupGrid({ lights, setLights, rooms }) {
