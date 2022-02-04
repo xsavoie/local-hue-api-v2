@@ -1,21 +1,26 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
-export default function ScenesDropdown({ scenes, handleSceneChange, selectedScene, setSelectedScene }) {
-
+export default function ScenesDropdown({
+  scenes,
+  handleSceneChange,
+  selectedScene,
+  setSelectedScene,
+}) {
   // const [selectedScene, setSelectedScene] = useState('');
 
-  const sceneListItems = scenes.map(scene => <MenuItem key={scene.id} value={scene.id}>{scene.metadata.name}</MenuItem>);
-  const noScenes = <MenuItem value={null}>No scenes selected</MenuItem>
+  const sceneListItems = scenes.map((scene) => (
+    <MenuItem key={scene.id} value={scene.id}>
+      {scene.metadata.name}
+    </MenuItem>
+  ));
+  const noScenes = <MenuItem value={null}>No scenes selected</MenuItem>;
 
-  
   const handleChange = (scene) => {
     setSelectedScene(scene.target.value);
-    const request = { scene: scene.target.value};
-    handleSceneChange(request);
-    console.log(scene.target.value);
-  }
-
+    const request = { recall: { action: "active" } };
+    handleSceneChange(scene.target.value, request);
+  };
 
   return (
     <FormControl fullWidth>

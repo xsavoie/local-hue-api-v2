@@ -18,7 +18,7 @@ export default function GroupContainer({
   setLights,
   groupScenes
 }) {
-  const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
+  const { handleRequest, handleSceneChange } = useHueLight({ lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
   const [selectedScene, setSelectedScene] = useState("");
@@ -53,7 +53,9 @@ export default function GroupContainer({
         />
         <ScenesDropdown
             scenes={groupScenes}
-            handleRequest={handleRequest}
+            handleSceneChange={handleSceneChange}
+            selectedScene={selectedScene}
+            setSelectedScene={setSelectedScene}
           />
         {/* <ScenesContainer scenes={parsedScenes} handleSceneChange={handleGroupChange} /> */}
       </div>
