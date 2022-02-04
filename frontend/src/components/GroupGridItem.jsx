@@ -26,7 +26,7 @@ export default function GroupContainer({
     <div className="grid-item--container">
       <header className="grid-item--info">
         <h4>
-          {name} id: {id}
+          {name}
         </h4>
         {/* <ExpandedView selected={selected} setSelected={setSelected} id={id}/> */}
       </header>

@@ -20,7 +20,7 @@ function App() {
   // console.log("light", lights)
   // console.log("groupedLight", groupedLight)
   // console.log('rooms', rooms)
-  console.log('scenes', scenes)
+  // console.log('scenes', scenes)
 
   if (loading) return <p>Getting Hue Data...</p>;
 
