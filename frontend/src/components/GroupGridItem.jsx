@@ -5,6 +5,7 @@ import BrightnessSlider from "./light-controls/BrightnessSlider";
 import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
 import ScenesDropdown from "./light-controls/ScenesDropdown";
+import ScenesControl from "./light-controls/ScenesControl";
 // import ExpandedView from "./ExpandView";
 // import ScenesContainer from "./light-controls/ScenesContainer";
 
@@ -16,13 +17,15 @@ export default function GroupContainer({
   lightsInGroup,
   lights,
   setLights,
-  groupScenes
+  groupScenes,
 }) {
-  const { handleRequest, handleSceneChange } = useHueLight({ lights, setLights });
+  const { handleRequest, handleSceneChange } = useHueLight({
+    lights,
+    setLights,
+  });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
   const [selectedScene, setSelectedScene] = useState("");
-
 
   return (
     <div className="grid-item--container">
@@ -51,13 +54,18 @@ export default function GroupContainer({
           setColor={setColor}
           handleRequest={handleRequest}
         />
-        <ScenesDropdown
+        {/* <ScenesDropdown
             scenes={groupScenes}
             handleSceneChange={handleSceneChange}
             selectedScene={selectedScene}
             setSelectedScene={setSelectedScene}
-          />
-        {/* <ScenesContainer scenes={parsedScenes} handleSceneChange={handleGroupChange} /> */}
+          /> */}
+        <ScenesControl
+          scenes={groupScenes}
+          handleSceneChange={handleSceneChange}
+          selectedScene={selectedScene}
+          setSelectedScene={setSelectedScene}
+        />
       </div>
     </div>
   );
