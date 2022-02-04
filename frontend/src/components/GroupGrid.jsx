@@ -1,4 +1,3 @@
-// import { useGroupState } from "../lib/groupState";
 import {
   lightsIdForRoom,
   getAllLightsForGroup,

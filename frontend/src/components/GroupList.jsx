@@ -4,8 +4,9 @@ import {
 } from "../lib/lightGroupHelpers";
 import GroupListItem from "./GroupListItem";
 import "../styles/Groups.css";
+import { parseScenes } from "../lib/scenesHelper";
 
-export default function GroupList({ lights, setLights, rooms }) {
+export default function GroupList({ lights, setLights, rooms, scenes }) {
   const groupListItems = rooms.map((room) => (
     <GroupListItem
       key={room.id}
@@ -16,6 +17,7 @@ export default function GroupList({ lights, setLights, rooms }) {
       lightsInGroup={getAllLightsForGroup(lightsIdForRoom(room), lights)}
       lights={lights}
       setLights={setLights}
+      groupScenes={parseScenes(room, scenes)}
     />
   ));
 

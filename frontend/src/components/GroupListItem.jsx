@@ -1,11 +1,10 @@
 import { useState } from "react";
 import BrightnessSlider from "./light-controls/BrightnessSlider";
 import ColorPicker from "./light-controls/ColorPicker";
-// import ScenesDropdown from "./light-controls/ScenesDropdown";
 import "../styles/GroupListItem.css";
 import ToggleLight from "./light-controls/ToggleLight";
 import useHueLight from "../hooks/useHueLight";
-// import ScenesContainer from "./light-controls/ScenesContainer";
+import ScenesControl from "./light-controls/ScenesControl";
 
 export default function GroupListItem({
   id,
@@ -15,12 +14,12 @@ export default function GroupListItem({
   lightsInGroup,
   lights,
   setLights,
+  groupScenes
 }) {
-  const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
+  const { handleRequest, handleSceneChange } = useHueLight({ id: lightsId, lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
-
-  // const parsedScenes = scenes.filter((scene) => scene.group === id);
+  const [selectedScene, setSelectedScene] = useState("");
 
   return (
     <div className="list-item--container">
@@ -43,14 +42,12 @@ export default function GroupListItem({
         setColor={setColor}
         handleRequest={handleRequest}
       />
-      {/* <ScenesDropdown
-        scenes={parsedScenes}
-        handleSceneChange={handleGroupChange}
-      /> */}
-      {/* <ScenesContainer
-        scenes={parsedScenes}
-        handleSceneChange={handleGroupChange}
-      /> */}
+      <ScenesControl
+        scenes={groupScenes}
+        handleSceneChange={handleSceneChange}
+        selectedScene={selectedScene}
+        setSelectedScene={setSelectedScene}
+      />
     </div>
   );
 }

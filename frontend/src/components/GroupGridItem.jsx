@@ -6,8 +6,6 @@ import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
 import ScenesDropdown from "./light-controls/ScenesDropdown";
 import ScenesControl from "./light-controls/ScenesControl";
-// import ExpandedView from "./ExpandView";
-// import ScenesContainer from "./light-controls/ScenesContainer";
 
 export default function GroupContainer({
   id,
@@ -54,12 +52,6 @@ export default function GroupContainer({
           setColor={setColor}
           handleRequest={handleRequest}
         />
-        {/* <ScenesDropdown
-            scenes={groupScenes}
-            handleSceneChange={handleSceneChange}
-            selectedScene={selectedScene}
-            setSelectedScene={setSelectedScene}
-          /> */}
         <ScenesControl
           scenes={groupScenes}
           handleSceneChange={handleSceneChange}

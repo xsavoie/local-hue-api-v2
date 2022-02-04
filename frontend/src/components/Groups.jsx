@@ -17,7 +17,7 @@ export default function Groups({ lights, setLights, rooms, scenes }) {
           <GroupGrid rooms={rooms} lights={lights} setLights={setLights} scenes={scenes}/>
         )}
         {groupView === "LIST" && (
-          <GroupList rooms={rooms} lights={lights} setLights={setLights} />
+          <GroupList rooms={rooms} lights={lights} setLights={setLights} scenes={scenes} />
         )}
       </div>
     </div>
