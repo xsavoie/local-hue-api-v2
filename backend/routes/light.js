@@ -39,7 +39,7 @@ light.put("/:id", async function (req, res) {
       axiosConfig
     );
     // console.log(apiResponse.data)
-    res.json(apiResponse.data)
+    res.json(apiResponse.data);
   } catch (error) {
     console.log(error.message);
   }

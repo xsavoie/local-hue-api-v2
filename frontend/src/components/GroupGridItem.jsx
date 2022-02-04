@@ -4,7 +4,7 @@ import { useState } from "react";
 import BrightnessSlider from "./light-controls/BrightnessSlider";
 import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
-// import ScenesDropdown from "./light-controls/ScenesDropdown";
+import ScenesDropdown from "./light-controls/ScenesDropdown";
 // import ExpandedView from "./ExpandView";
 // import ScenesContainer from "./light-controls/ScenesContainer";
 
@@ -21,12 +21,14 @@ export default function GroupContainer({
   const { handleRequest } = useHueLight({ id: lightsId, lights, setLights });
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
+  const [selectedScene, setSelectedScene] = useState("");
+
 
   return (
     <div className="grid-item--container">
       <header className="grid-item--info">
         <h4>
-          {name}
+          {name} {id}
         </h4>
         {/* <ExpandedView selected={selected} setSelected={setSelected} id={id}/> */}
       </header>
@@ -49,10 +51,10 @@ export default function GroupContainer({
           setColor={setColor}
           handleRequest={handleRequest}
         />
-        {/* <ScenesDropdown
-            scenes={parsedScenes}
-            handleRequest={handleGroupChange}
-          /> */}
+        <ScenesDropdown
+            scenes={groupScenes}
+            handleRequest={handleRequest}
+          />
         {/* <ScenesContainer scenes={parsedScenes} handleSceneChange={handleGroupChange} /> */}
       </div>
     </div>
