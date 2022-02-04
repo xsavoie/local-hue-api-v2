@@ -4,7 +4,6 @@ import { useState } from "react";
 import BrightnessSlider from "./light-controls/BrightnessSlider";
 import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
-import ScenesDropdown from "./light-controls/ScenesDropdown";
 import ScenesControl from "./light-controls/ScenesControl";
 
 export default function GroupContainer({

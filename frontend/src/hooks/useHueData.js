@@ -47,10 +47,10 @@ export default function useHueData() {
   useEffect(() => {
     async function fetchAllApi() {
       setLoading(true);
+      await fetchSceneApi();
       await fetchLightsApi();
       await fetchGroupedLightApi();
       await fetchRoomApi();
-      fetchSceneApi();
       setLoading(false);
     }
 

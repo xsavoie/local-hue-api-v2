@@ -2,24 +2,13 @@ const express = require("express");
 const light = express.Router();
 const axios = require("axios");
 require("dotenv").config();
-
-const bridge = process.env.HUE_BRIDGE;
-const username = process.env.HUE_USERNAME;
-const axiosConfig = {
-  headers: {
-    "hue-application-key": username,
-  },
-};
+const { bridge, axiosConfig } = require("./hueApiData");
 
 light.get("/", async function (req, res) {
   try {
     const apiResponse = await axios.get(
       `https://${bridge}/clip/v2/resource/light`,
-      {
-        headers: {
-          "hue-application-key": username,
-        },
-      }
+      axiosConfig
     );
     // console.log(apiResponse.data.data)
     res.json(apiResponse.data.data);
