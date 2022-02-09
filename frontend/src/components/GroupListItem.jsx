@@ -43,6 +43,8 @@ export default function GroupListItem({
           setBri={setBri}
           handleRequest={handleRequest}
         />
+      </div>
+      <div className="list-item--color-control">
         <ColorPicker
           id={lightsId}
           color={color}
