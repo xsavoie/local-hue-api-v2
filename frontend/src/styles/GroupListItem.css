@@ -9,3 +9,19 @@
   border-radius: 14px;
   padding: 1%;
 }
+
+/* .list-item--info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 10% 0;
+} */
+
+.list-item--control {
+  /* margin: 4% 4% 2%; */
+  padding: 4%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+}
