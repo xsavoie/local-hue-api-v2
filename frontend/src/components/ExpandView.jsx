@@ -1,6 +1,7 @@
-export default function ExpandedView({ id, selected, setSelected }) {
+export default function ExpandView({ id, selected, setSelected }) {
 
   function handleClick () {
+    console.log('selected: ', id)
     setSelected(id);
   }
 

@@ -1,3 +1,4 @@
+import { useGroupState } from "../lib/groupState";
 import {
   lightsIdForRoom,
   getAllLightsForGroup,
@@ -6,7 +7,7 @@ import { parseScenes } from "../lib/scenesHelper";
 import GroupContainer from "./GroupGridItem";
 
 export default function GroupGrid({ lights, setLights, rooms, scenes }) {
-  // const { selected, setSelected } = useGroupState();
+  const { selected, setSelected } = useGroupState();
 
   const groupGridItems = rooms.map((room) => (
     <GroupContainer
@@ -19,6 +20,8 @@ export default function GroupGrid({ lights, setLights, rooms, scenes }) {
       lights={lights}
       setLights={setLights}
       groupScenes={parseScenes(room, scenes)}
+      selected={selected}
+      setSelected={setSelected}
     />
   ));
 

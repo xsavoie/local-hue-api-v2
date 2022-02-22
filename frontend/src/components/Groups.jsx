@@ -19,7 +19,7 @@ export default function Groups({ lights, setLights, rooms, scenes }) {
         {groupView === "LIST" && (
           <GroupList rooms={rooms} lights={lights} setLights={setLights} scenes={scenes} />
         )}
-        <GroupExpanded />
+        {/* <GroupExpanded rooms={rooms} lights={lights} setLights={setLights} scenes={scenes}/> */}
       </div>
     </div>
   );

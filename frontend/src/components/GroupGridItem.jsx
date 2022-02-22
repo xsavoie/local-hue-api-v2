@@ -5,6 +5,7 @@ import BrightnessSlider from "./light-controls/BrightnessSlider";
 import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
 import ScenesControl from "./light-controls/ScenesControl";
+import ExpandView from "./ExpandView";
 
 export default function GroupContainer({
   id,
@@ -15,6 +16,8 @@ export default function GroupContainer({
   lights,
   setLights,
   groupScenes,
+  selected,
+  setSelected
 }) {
   const { handleRequest, handleSceneChange } = useHueLight({
     lights,
@@ -28,7 +31,7 @@ export default function GroupContainer({
     <div className="grid-item--container">
       <header className="grid-item--info">
         <h4>{name}</h4>
-        {/* <ExpandedView selected={selected} setSelected={setSelected} id={id}/> */}
+        <ExpandView selected={selected} setSelected={setSelected} id={id}/>
       </header>
       <div className="grid-item--control">
         <ToggleLight
