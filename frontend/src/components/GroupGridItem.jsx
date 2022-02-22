@@ -6,6 +6,7 @@ import ToggleLight from "./light-controls/ToggleLight";
 import ColorPicker from "./light-controls/ColorPicker";
 import ScenesControl from "./light-controls/ScenesControl";
 import ExpandView from "./ExpandView";
+import { useGroupState } from "../lib/groupState";
 
 export default function GroupContainer({
   id,
@@ -16,8 +17,6 @@ export default function GroupContainer({
   lights,
   setLights,
   groupScenes,
-  selected,
-  setSelected
 }) {
   const { handleRequest, handleSceneChange } = useHueLight({
     lights,
@@ -26,12 +25,13 @@ export default function GroupContainer({
   const [bri, setBri] = useState(lightsInGroup[0].dimming.brightness);
   const [color, setColor] = useState(lightsInGroup[0].color.xy);
   const [selectedScene, setSelectedScene] = useState("");
+  const { selected, setSelected } = useGroupState();
 
   return (
     <div className="grid-item--container">
       <header className="grid-item--info">
         <h4>{name}</h4>
-        <ExpandView selected={selected} setSelected={setSelected} id={id}/>
+        <ExpandView selected={selected} setSelected={setSelected} id={id} />
       </header>
       <div className="grid-item--control">
         <ToggleLight
