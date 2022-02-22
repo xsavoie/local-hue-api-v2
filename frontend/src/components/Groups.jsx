@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { useGroupState } from "../lib/groupState";
-// import GroupExpanded from "./GroupExpanded";
+import GroupExpanded from "./GroupExpanded";
 import GroupList from "./GroupList";
 import SetView from "./SetView";
 import GroupGrid from "./GroupGrid";
@@ -19,6 +19,7 @@ export default function Groups({ lights, setLights, rooms, scenes }) {
         {groupView === "LIST" && (
           <GroupList rooms={rooms} lights={lights} setLights={setLights} scenes={scenes} />
         )}
+        <GroupExpanded />
       </div>
     </div>
   );

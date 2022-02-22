@@ -1,5 +1,5 @@
 import { useGroupState } from "../lib/groupState";
-import "./styles/GroupExpanded.css";
+import "../styles/GroupExpanded.css";
 
 export default function GroupExpanded({ groups, setGroups, scenes }) {
   const { selected, setSelected } = useGroupState();
