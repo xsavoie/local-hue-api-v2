@@ -2,7 +2,7 @@ import { useGroupState } from "../lib/groupState";
 import "../styles/GroupExpanded.css";
 
 export default function GroupExpanded({ groups, setGroups, scenes }) {
-  const { selected, setSelected } = useGroupState();
+  const { setSelected } = useGroupState();
 
   // const selectedGroup = groups.filter((group) => group.id === selected);
   // const groupData = selectedGroup[0];

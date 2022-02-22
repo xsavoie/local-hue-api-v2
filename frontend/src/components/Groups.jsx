@@ -13,13 +13,19 @@ export default function Groups({ lights, setLights, rooms, scenes }) {
     <div className="groups">
       <div className="groups--container">
         <SetView />
-        {groupView === "GRID" && (
+        {selected && (
+          <GroupExpanded
+            // groups={groups}
+            // setGroups={setGroups}
+            // scenes={scenes}
+          />
+        )}
+        {!selected && groupView === "GRID" && (
           <GroupGrid rooms={rooms} lights={lights} setLights={setLights} scenes={scenes}/>
         )}
-        {groupView === "LIST" && (
+        {!selected && groupView === "LIST" && (
           <GroupList rooms={rooms} lights={lights} setLights={setLights} scenes={scenes} />
         )}
-        {/* <GroupExpanded rooms={rooms} lights={lights} setLights={setLights} scenes={scenes}/> */}
       </div>
     </div>
   );
